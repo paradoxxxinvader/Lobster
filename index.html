@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Parisienne&display=swap');
+
+        body {
+            background: url('background.gif') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            font-family: 'Parisienne', cursive;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px rgba(255, 0, 77, 0.5);
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 3px 3px 8px rgba(255, 0, 77, 0.5); }
+            to { text-shadow: 5px 5px 12px rgba(255, 0, 77, 0.8); }
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff4d6d, #ff1e4d);
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            font-size: 1.8rem;
+            font-family: 'Dancing Script', cursive;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0px 0px 15px rgba(255, 0, 77, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #ff1e4d, #ff4d6d);
+            transform: scale(1.07);
+            box-shadow: 0px 0px 20px rgba(255, 0, 77, 0.8);
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            color: rgba(255, 100, 150, 0.7);
+            font-size: 20px;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-200px) rotate(20deg); opacity: 0.8; }
+            100% { transform: translateY(-400px) rotate(-20deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Valentine's Day, Lobster 💕</h1>
+
+    <div class="buttons">
+        <button onclick="goToPage('https://www.tumblr.com/momogaoka/618638634766204928/your-name-%E5%90%9B%E3%81%AE%E5%90%8D%E3%81%AF-gif-headers-for-mobile-size')">Surprise A 🎁</button>
+        <button onclick="goToPage('surpriseB.html')">Surprise B 💌</button>
+        <button onclick="goToPage('surpriseC.html')">Surprise C 💖</button>
+    </div>
+
+    <div class="footer">Made by your Panda 🐼❤️</div>
+
+    <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+
+        // Floating Hearts Animation
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+
+</body>
+</html>
